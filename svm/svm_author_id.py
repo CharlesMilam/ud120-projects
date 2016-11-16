@@ -41,12 +41,12 @@ print
 
 t1 = time()
 pred = clf.predict(features_test)
+print "prediction time:", round(time()-t1, 3), "s"
+print
+
 acc = clf.score(features_test, labels_test)
 unique, counts = np.unique(pred, return_counts = True)
 event_counts = dict(zip(unique, counts))
-
-print "prediction time:", round(time()-t1, 3), "s"
-print
 
 print 'Accuracy score:', acc
 print
