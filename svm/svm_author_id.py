@@ -27,10 +27,14 @@ features_train, features_test, labels_train, labels_test = preprocess()
 import numpy as np
 from sklearn.svm import SVC
 
+features_train = features_train[:len(features_train)/100]
+labels_train = labels_train[:len(labels_train)/100]
+
 clf = SVC(kernel = 'linear')
 
 t0 = time()
 clf.fit(features_train, labels_train)
+print
 print "training time:", round(time()-t0, 3), "s"
 print
 
@@ -40,4 +44,5 @@ print "prediction time:", round(time()-t1, 3), "s"
 print
 
 print 'Accuracy score:', clf.score(features_test, labels_test)
+print
 #########################################################
