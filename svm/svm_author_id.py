@@ -27,6 +27,7 @@ features_train, features_test, labels_train, labels_test = preprocess()
 import numpy as np
 from sklearn.svm import SVC
 
+# reduce training set size
 features_train = features_train[:len(features_train)/100]
 labels_train = labels_train[:len(labels_train)/100]
 
@@ -44,5 +45,9 @@ print "prediction time:", round(time()-t1, 3), "s"
 print
 
 print 'Accuracy score:', clf.score(features_test, labels_test)
+print
+print 'Class for 10:', pred[10]
+print 'Class for 26:', pred[26]
+print 'Class for 50:', pred[50]
 print
 #########################################################
