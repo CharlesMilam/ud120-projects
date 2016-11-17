@@ -29,8 +29,11 @@ bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 ### your code here!  name your classifier object clf if you want the
 ### visualization code (prettyPicture) to show you the decision boundary
 from sklearn.ensemble import AdaBoostClassifier
+from sklearn import tree
 
-clf = AdaBoostClassifier(n_estimators = 70, learning_rate = 1)
+dt = tree.DecisionTreeClassifier(criterion = 'entropy', min_samples_split = 5, max_depth = 25, min_samples_leaf = 2)
+
+clf = AdaBoostClassifier(dt, n_estimators = 100, learning_rate = 0.99, algorithm = 'SAMME')
 
 clf.fit(features_train, labels_train)
 
