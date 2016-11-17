@@ -17,22 +17,20 @@ bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 
 
 #### initial visualization
-plt.xlim(0.0, 1.0)
-plt.ylim(0.0, 1.0)
-plt.scatter(bumpy_fast, grade_fast, color = "b", label="fast")
-plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
-plt.legend()
-plt.xlabel("bumpiness")
-plt.ylabel("grade")
-plt.show()
+# plt.xlim(0.0, 1.0)
+# plt.ylim(0.0, 1.0)
+# plt.scatter(bumpy_fast, grade_fast, color = "b", label="fast")
+# plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
+# plt.legend()
+# plt.xlabel("bumpiness")
+# plt.ylabel("grade")
+# plt.show()
 ################################################################################
-
-
 ### your code here!  name your classifier object clf if you want the
 ### visualization code (prettyPicture) to show you the decision boundary
 from sklearn.ensemble import AdaBoostClassifier
 
-clf = AdaBoostClassifier(n_estimators = 10000)
+clf = AdaBoostClassifier(n_estimators = 70, learning_rate = 1)
 
 clf.fit(features_train, labels_train)
 
