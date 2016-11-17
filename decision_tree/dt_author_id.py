@@ -32,4 +32,7 @@ clf.fit(features_train, labels_train)
 acc = clf.score(features_test, labels_test)
 
 print 'Accuracy:', acc
+
+num_features = len(features_train[1])
+print 'Number of features:', num_features
 #########################################################
