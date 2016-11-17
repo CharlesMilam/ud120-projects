@@ -32,7 +32,7 @@ plt.show()
 ### visualization code (prettyPicture) to show you the decision boundary
 from sklearn.ensemble import AdaBoostClassifier
 
-clf = AdaBoostClassifier(n_estimators = 50)
+clf = AdaBoostClassifier(n_estimators = 25)
 
 clf.fit(features_train, labels_train)
 
