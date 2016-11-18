@@ -44,7 +44,13 @@ ab_acc = ab_clf.score(features_test, labels_test)
 
 print 'Adaboost Accuracy:', ab_acc
 
-rf_clf = RandomForestClassifier(n_estimators = 10)
+rf_clf = RandomForestClassifier(n_estimators = 500, criterion = 'gini',
+                                max_depth = 2, min_samples_split = 2,
+                                min_weight_fraction_leaf = 0.05,
+                                max_leaf_nodes = 100,
+                                min_impurity_split = 0.005,
+                                class_weight = None,
+                                n_jobs = -1)
 
 rf_clf.fit(features_train, labels_train)
 
@@ -53,6 +59,7 @@ rf_pred = rf_clf.predict(features_test)
 rf_acc = rf_clf.score(features_test, labels_test)
 
 print 'Random Forest Accuracy:', rf_acc
+
 
 
 
