@@ -32,3 +32,7 @@ with open('./final_project/poi_names.txt', 'r') as f:
     num_poi_exist = len([line for line in f if line[0] == '('])
 
 print 'Number of existing poi:', num_poi_exist
+
+# print enron_data['PRENTICE JAMES']
+jp_stock_val = enron_data['PRENTICE JAMES']['total_stock_value']
+print 'Total stock for Jame Prentice', jp_stock_val
