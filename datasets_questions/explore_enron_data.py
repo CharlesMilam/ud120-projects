@@ -24,3 +24,11 @@ print 'Number of data points:', num_datapoints
 
 num_features = len(enron_data['SKILLING JEFFREY K'].keys())
 print 'Number of features:', num_features
+
+num_poi = len([data for data in enron_data if enron_data[data]['poi']])
+print 'Number of POI', num_poi
+
+with open('./final_project/poi_names.txt', 'r') as f:
+    num_poi_exist = len([line for line in f if line[0] == '('])
+
+print 'Number of existing poi:', num_poi_exist
