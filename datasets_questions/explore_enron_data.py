@@ -42,3 +42,14 @@ print 'Number of emails to poi from Wesley Colwell:', wc_email_to_poi
 
 js_stock_options = enron_data['SKILLING JEFFREY K']['exercised_stock_options']
 print 'Exercised stock options by Skilling:', js_stock_options
+
+scum_salaries = {}
+skilling = 'SKILLING JEFFREY K'
+lay = 'LAY KENNETH L'
+fastow = 'FASTOW ANDREW S'
+
+scum_salaries[skilling] = enron_data[skilling]['total_payments']
+scum_salaries[lay] = enron_data[lay]['total_payments']
+scum_salaries[fastow] = enron_data[fastow]['total_payments']
+
+print 'Biggest scum:', max(scum_salaries.iterkeys(), key = lambda key: scum_salaries[key]), scum_salaries[str(max(scum_salaries.iterkeys(), key = lambda key: scum_salaries[key]))]
