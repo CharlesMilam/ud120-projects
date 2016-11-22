@@ -35,4 +35,10 @@ print 'Number of existing poi:', num_poi_exist
 
 # print enron_data['PRENTICE JAMES']
 jp_stock_val = enron_data['PRENTICE JAMES']['total_stock_value']
-print 'Total stock for Jame Prentice', jp_stock_val
+print 'Total stock for Jame Prentice:', jp_stock_val
+
+wc_email_to_poi = enron_data['COLWELL WESLEY']['from_this_person_to_poi']
+print 'Number of emails to poi from Wesley Colwell:', wc_email_to_poi
+
+js_stock_options = enron_data['SKILLING JEFFREY K']['exercised_stock_options']
+print 'Exercised stock options by Skilling:', js_stock_options
