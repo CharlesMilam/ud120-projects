@@ -65,3 +65,11 @@ for person in enron_data:
         num_emails += 1
 
 print 'Number salaried: {}, Number emails: {}'.format(num_salaries, num_emails)
+
+num_no_tot_payments = 0.0
+
+for person in enron_data:
+    if enron_data[person]['total_payments'] == 'NaN':
+        num_no_tot_payments += 1
+
+print 'Percentage of no total payments: {:.2f}'.format((num_no_tot_payments / num_datapoints) * 100)
