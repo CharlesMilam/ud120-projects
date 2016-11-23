@@ -53,3 +53,15 @@ scum_salaries[lay] = enron_data[lay]['total_payments']
 scum_salaries[fastow] = enron_data[fastow]['total_payments']
 
 print 'Biggest scum:', max(scum_salaries.iterkeys(), key = lambda key: scum_salaries[key]), scum_salaries[str(max(scum_salaries.iterkeys(), key = lambda key: scum_salaries[key]))]
+
+num_salaries = 0
+num_emails = 0
+
+for person in enron_data:
+    if enron_data[person]['salary'] != 'NaN':
+        num_salaries += 1
+
+    if enron_data[person]['email_address'] != 'NaN':
+        num_emails += 1
+
+print 'Number salaried: {}, Number emails: {}'.format(num_salaries, num_emails)
