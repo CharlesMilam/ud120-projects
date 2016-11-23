@@ -73,3 +73,15 @@ for person in enron_data:
         num_no_tot_payments += 1
 
 print 'Percentage of no total payments: {:.2f}'.format((num_no_tot_payments / num_datapoints) * 100)
+
+num_poi_no_tot_payments = 0.0
+
+for person in enron_data:
+    if enron_data[person]['total_payments'] == 'NaN' and enron_data[person]['poi']:
+        num_poi_no_tot_payments += 1
+
+print 'Percentage of poi no total payments: {:.2f}'.format((num_poi_no_tot_payments / num_datapoints) * 100)
+
+print 'Number of no total payments:', num_no_tot_payments
+
+print 'Number of poi no total payments:', num_poi_no_tot_payments
