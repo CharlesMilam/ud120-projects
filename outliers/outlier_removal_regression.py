@@ -32,7 +32,10 @@ reg.fit(ages_train, net_worths_train)
 
 print 'Slope: {:.3f}'.format(reg.coef_[0][0])
 
+predict = reg.predict(ages_test)
+score = reg.score(ages_test, net_worths_test)
 
+print 'Test score: {:.3f}'.format(score)
 
 
 
