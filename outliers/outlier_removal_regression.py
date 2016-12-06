@@ -77,6 +77,8 @@ if len(cleaned_data) > 0:
     try:
         reg.fit(ages, net_worths)
         plt.plot(ages, reg.predict(ages), color="blue")
+        print 'New slope: {:.3f}'.format(reg.coef_[0][0])
+        print 'New score: {:.3f}'.format(reg.score(ages_test, net_worths_test))
     except NameError:
         print "you don't seem to have regression imported/created,"
         print "   or else your regression object isn't named reg"
@@ -89,5 +91,3 @@ if len(cleaned_data) > 0:
 
 else:
     print "outlierCleaner() is returning an empty list, no refitting to be done"
-
-print 'New slope: {:.3f}'.format(reg.coef_[0][0])

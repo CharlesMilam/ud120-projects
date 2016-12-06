@@ -19,4 +19,4 @@ def outlierCleaner(predictions, ages, net_worths):
 
     cleaned_data.sort(key = itemgetter(2))
 
-    return cleaned_data[:82]
+    return cleaned_data[:81]
