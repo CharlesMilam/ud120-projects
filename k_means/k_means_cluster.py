@@ -1,6 +1,6 @@
-#!/usr/bin/python 
+#!/usr/bin/python
 
-""" 
+"""
     Skeleton code for k-means clustering mini-project.
 """
 
@@ -11,7 +11,7 @@ import pickle
 import numpy
 import matplotlib.pyplot as plt
 import sys
-sys.path.append("../tools/")
+sys.path.append("./tools/")
 from feature_format import featureFormat, targetFeatureSplit
 
 
@@ -39,15 +39,35 @@ def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature
 
 
 ### load in the dict of dicts containing all the data on each person in the dataset
-data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r") )
-### there's an outlier--remove it! 
+data_dict = pickle.load( open("./final_project/final_project_dataset.pkl", "r") )
+### there's an outlier--remove it!
 data_dict.pop("TOTAL", 0)
 
+# determine the min and max values for exercised_stock_options
+def data_min_max(dict, feature):
+    min = 1000000000
+    max = 0
 
-### the input features we want to use 
-### can be any key in the person-level dictionary (salary, director_fees, etc.) 
+    for item in dict:
+        if dict[item][feature] != 'NaN':
+            if dict[item][feature] < min:
+                min = dict[item][feature]
+
+            if dict[item][feature] > max:
+                max = dict[item][feature]
+
+    return (min, max)
+
+eso_min_max = data_min_max(data_dict, 'exercised_stock_options')
+salary_min_max = data_min_max(data_dict, 'salary')
+print 'data_dict eso min value = {}, max value = {}'.format(eso_min_max[0], eso_min_max[1])
+print 'data_dict salary min value = {}, max value = {}'.format(salary_min_max[0], salary_min_max[1])
+
+### the input features we want to use
+### can be any key in the person-level dictionary (salary, director_fees, etc.)
 feature_1 = "salary"
 feature_2 = "exercised_stock_options"
+feature_3 = 'total_payments'
 poi  = "poi"
 features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
@@ -55,7 +75,7 @@ poi, finance_features = targetFeatureSplit( data )
 
 
 ### in the "clustering with 3 features" part of the mini-project,
-### you'll want to change this line to 
+### you'll want to change this line to
 ### for f1, f2, _ in finance_features:
 ### (as it's currently written, the line below assumes 2 features)
 for f1, f2 in finance_features:
@@ -64,7 +84,10 @@ plt.show()
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
+from sklearn.cluster import KMeans
 
+kmeans = KMeans(n_clusters = 2, random_state = 0).fit(finance_features)
+pred = kmeans.predict(finance_features)
 
 
 
