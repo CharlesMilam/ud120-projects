@@ -44,24 +44,24 @@ data_dict = pickle.load( open("./final_project/final_project_dataset.pkl", "r") 
 data_dict.pop("TOTAL", 0)
 
 # determine the min and max values for exercised_stock_options
-def data_min_max(dict):
+def data_min_max(dict, feature):
     min = 1000000000
     max = 0
 
     for item in dict:
-        if dict[item]['exercised_stock_options'] != 'NaN':
-            if dict[item]['exercised_stock_options'] < min:
-                min = dict[item]['exercised_stock_options']
+        if dict[item][feature] != 'NaN':
+            if dict[item][feature] < min:
+                min = dict[item][feature]
 
-            if dict[item]['exercised_stock_options'] > max:
-                max = dict[item]['exercised_stock_options']
+            if dict[item][feature] > max:
+                max = dict[item][feature]
 
     return (min, max)
 
-min_max = data_min_max(data_dict)
-# eso_min = min(data_dict, key = lambda i: data_dict[i]['exercised_stock_options'] if data_dict[i]['exercised_stock_options'] != 'NaN')
-# eso_max = max(data_dict, key = lambda i: data_dict[i]['exercised_stock_options'])
-print 'data_dict min value = {}, max value = {}'.format(min_max[0], min_max[1])
+eso_min_max = data_min_max(data_dict, 'exercised_stock_options')
+salary_min_max = data_min_max(data_dict, 'salary')
+print 'data_dict eso min value = {}, max value = {}'.format(eso_min_max[0], eso_min_max[1])
+print 'data_dict salary min value = {}, max value = {}'.format(salary_min_max[0], salary_min_max[1])
 
 ### the input features we want to use
 ### can be any key in the person-level dictionary (salary, director_fees, etc.)
