@@ -48,3 +48,9 @@ score = clf.score(features_test, labels_test)
 
 print 'Score: {}'.format(score)
 print 'Num of training points: {}'.format(len(features_train))
+
+feature_importance = clf.feature_importances_
+
+for idx, feature in enumerate(feature_importance):
+    if feature > 0.2:
+        print feature, idx
