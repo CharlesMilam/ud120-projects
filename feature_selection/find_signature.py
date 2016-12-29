@@ -53,4 +53,9 @@ feature_importance = clf.feature_importances_
 
 for idx, feature in enumerate(feature_importance):
     if feature > 0.2:
-        print feature, idx
+        feat_score, feat_idx = feature, idx
+        print 'feature score = {}, feature index = {}'.format(feat_score, feat_idx)
+
+# get the most important word
+vector_words = vectorizer.get_feature_names()
+print 'Important word: {}'.format(vector_words[feat_idx])
