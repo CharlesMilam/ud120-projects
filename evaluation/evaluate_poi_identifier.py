@@ -51,6 +51,14 @@ print 'Number of test set POIs: {}'.format(num_test_poi)
 print 'Number of people in test set: {}'.format(len(labels_test))
 
 # determine the accuracy if no POIs found
-labels_test = [0.0] * len(labels_test)
-no_poi_score = clf.score(features_test, labels_test)
+labels_test_no_poi = [0.0] * len(labels_test)
+no_poi_score = clf.score(features_test, labels_test_no_poi)
 print 'Accuracy with no POIs: {:.3f}'.format(no_poi_score)
+
+# number of true positives
+pred = clf.predict(features_test)
+print 'Test labels'
+print labels_test
+print
+print 'Predicted labels'
+print pred
