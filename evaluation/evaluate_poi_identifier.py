@@ -45,3 +45,5 @@ for poi in labels_test:
     if poi:
         num_test_poi += 1
 print 'Number of test set POIs: {}'.format(num_test_poi)
+
+print 'Number of people in test set: {}'.format(len(labels_test))
