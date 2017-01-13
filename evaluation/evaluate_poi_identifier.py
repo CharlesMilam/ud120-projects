@@ -40,10 +40,17 @@ score = clf.score(features_test, labels_test)
 
 print 'Score: {:.3f}'.format(score)
 
+# determine numer of POIs in test set
 num_test_poi = 0
 for poi in labels_test:
     if poi:
         num_test_poi += 1
 print 'Number of test set POIs: {}'.format(num_test_poi)
 
+# determine total number of people in test set
 print 'Number of people in test set: {}'.format(len(labels_test))
+
+# determine the accuracy if no POIs found
+labels_test = [0.0] * len(labels_test)
+no_poi_score = clf.score(features_test, labels_test)
+print 'Accuracy with no POIs: {:.3f}'.format(no_poi_score)
