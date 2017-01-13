@@ -38,4 +38,10 @@ clf.fit(features_train, labels_train)
 
 score = clf.score(features_test, labels_test)
 
-print 'Score:', score
+print 'Score: {:.3f}'.format(score)
+
+num_test_poi = 0
+for poi in labels_test:
+    if poi:
+        num_test_poi += 1
+print 'Number of test set POIs: {}'.format(num_test_poi)
