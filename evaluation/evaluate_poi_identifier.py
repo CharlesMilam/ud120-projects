@@ -62,3 +62,8 @@ print labels_test
 print
 print 'Predicted labels'
 print pred
+
+# determine the accuracy
+from sklearn.metrics import precision_score
+prec_score = precision_score(labels_test, pred)
+print 'Acuracy: {:.3f}'.format(prec_score)
