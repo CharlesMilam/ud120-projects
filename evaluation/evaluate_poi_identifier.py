@@ -67,3 +67,8 @@ print pred
 from sklearn.metrics import precision_score
 prec_score = precision_score(labels_test, pred)
 print 'Acuracy: {:.3f}'.format(prec_score)
+
+# determine the recall
+from sklearn.metrics import recall_score
+rcall_score = recall_score(labels_test, pred)
+print 'Recall: {:.3f}'.format(rcall_score)
